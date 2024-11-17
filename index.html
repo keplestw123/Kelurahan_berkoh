@@ -144,7 +144,7 @@
     
 /* Beranda Section */
 #beranda {
-    height: 100vh;
+    height: 100vh; /* Selalu memenuhi tinggi layar penuh */
     background: url('images/bg.jpg') no-repeat center center/cover;
     position: relative;
     display: flex;
@@ -205,10 +205,6 @@
 
 /* Media Query untuk Responsivitas */
 @media (max-width: 768px) {
-    #beranda {
-        padding: 20px;
-    }
-
     .hero h1 {
         font-size: 32px; /* Ukuran lebih kecil untuk layar kecil */
     }
@@ -224,11 +220,6 @@
 }
 
 @media (max-width: 480px) {
-    #beranda {
-        height: auto; /* Sesuaikan agar bagian ini fleksibel */
-        padding: 20px 10px;
-    }
-
     .hero h1 {
         font-size: 28px; /* Ukuran teks lebih kecil */
     }

@@ -44,17 +44,592 @@
             margin: 0;
         }
         </style>
-        <title></title>
+        <style>
+        /* Global Styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Poppins', sans-serif;
+            }
+            
+            html, body {
+                scroll-behavior: smooth;
+                overflow-x: hidden;
+            }
+            
+            body {
+                font-size: 16px;
+            }
+            
+            /* Section */
+            section {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                padding: 20px;
+                text-align: center;
+            }
+            
+            /* Navbar */
+            nav {
+                position: fixed;
+                width: 100%;
+                background: #0862bc;
+                padding: 10px 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                z-index: 1000;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            
+            .logo h2 {
+                color: #ecf0f1;
+                font-size: 1.2em;
+            }
+            
+            .menu-toggle {
+                display: none;
+                background: none;
+                border: none;
+                color: #ecf0f1;
+                font-size: 24px;
+                cursor: pointer;
+            }
+            
+            .nav-links {
+                display: flex;
+                list-style: none;
+            }
+            
+            .nav-links li {
+                margin-left: 20px;
+            }
+            
+            .nav-links a {
+                color: #ecf0f1;
+                text-decoration: none;
+                padding: 8px 12px;
+                border-radius: 4px;
+            }
+            
+            .nav-links a:hover {
+                background: #0862bc;
+            }
+            
+            /* Responsive Navbar */
+            @media (max-width: 768px) {
+                .menu-toggle {
+                    display: block;
+                }
+                .nav-links {
+                    display: none;
+                    flex-direction: column;
+                    position: absolute;
+                    top: 50px;
+                    right: 0;
+                    width: 200px;
+                    background: #0862bc;
+                    border-radius: 8px;
+                }
+                .nav-links.open {
+                    display: flex;
+                }
+                .nav-links li {
+                    margin: 10px 0;
+                }
+            }
+    
+            /* Beranda Section */
+            #beranda {
+                background: #0b909c;
+                color: #fff;
+                padding: 80px 20px;
+                text-align: center;
+            }
+            
+            /* CSS untuk Bagian Beranda */
+            #beranda {
+                height: 100vh;
+                background: url('images/bg.jpg') no-repeat center center/cover;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            #beranda::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.4); /* Overlay untuk memberikan efek gelap */
+                z-index: 1;
+            }
+            
+            .hero {
+                position: relative;
+                z-index: 2;
+                text-align: center;
+                color: #ffffff;
+            }
+            
+            .hero h1 {
+                font-size: 48px;
+                font-weight: 700;
+                margin-bottom: 10px;
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            }
+            
+            .hero p {
+                font-size: 20px;
+                font-weight: 300;
+                margin-bottom: 20px;
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            }
+            
+            .cta-button {
+                display: inline-block;
+                padding: 12px 24px;
+                font-size: 18px;
+                color: #ffffff;
+                background-color: #16a085;
+                border: none;
+                border-radius: 30px;
+                text-decoration: none;
+                font-weight: 600;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                transition: all 0.3s ease;
+            }
+            
+            .cta-button:hover {
+                background-color: #1abc9c;
+                transform: scale(1.05);
+            }
+
+
+                                /* Gaya untuk Visi dan Misi */
+                    #visi-misi {
+                        background-color: #ffffff;
+                        padding: 40px 20px;
+                    }
+                    
+                    .visi-misi-text {
+                        text-align: center;
+                        margin-bottom: 30px;
+                    }
+                    
+                    .visi-misi-text h2 {
+                        font-size: 2rem;
+                        color: #333;
+                        margin-bottom: 20px;
+                    }
+                    
+                    .visi-misi-text .visi, .visi-misi-text .misi {
+                        margin-bottom: 20px;
+                    }
+                    
+                    .visi-misi-text .misi ul {
+                        list-style-type: none;
+                        padding: 0;
+                    }
+                    
+                    .visi-misi-text .misi ul li {
+                        margin-bottom: 10px;
+                    }
+                    
+                    .visi-misi-text .misi strong {
+                        color: #007BFF;
+                    }
+                    
+                    /* Gaya untuk Foto Kegiatan */
+                    .foto-kegiatan {
+                        margin-top: 50px;
+                    }
+                    
+                    .foto-kegiatan h3 {
+                        text-align: center;
+                        font-size: 1.8rem;
+                        color: #333;
+                        margin-bottom: 20px;
+                    }
+                    
+                    .foto-grid {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                        gap: 20px;
+                    }
+                    
+                    .foto-item img {
+                        width: 100%;
+                        height: auto;
+                        border-radius: 8px;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    }
+                    
+                    .foto-description {
+                        text-align: center;
+                        padding: 10px;
+                        background-color: #fff;
+                        border-radius: 0 0 8px 8px;
+                        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                    }
+                    
+                    /* Responsif untuk ukuran layar kecil */
+                    @media (max-width: 768px) {
+                        .visi-misi-text h2 {
+                            font-size: 1.5rem;
+                        }
+                    
+                        .foto-kegiatan h3 {
+                            font-size: 1.5rem;
+                        }
+                    
+                        .foto-grid {
+                            grid-template-columns: 1fr 1fr;
+                        }
+                    }
+
+
+            /* geografis */
+            #geografis {
+                padding: 2rem; /* Menghapus padding agar elemen bisa mengisi seluruh layar */
+                height: 100vh; /* Membuat tinggi #geografis 100% dari tinggi layar */
+                background-color: #f4f4f4;
+                text-align: center;
+                box-sizing: border-box;
+                display: flex;
+                flex-direction: column;
+                justify-content: center; /* Menjaga konten tetap berada di tengah vertikal */
+                align-items: center; /* Menjaga konten tetap berada di tengah horizontal */
+            }
+            
+            /* Bagian #geografis */
+            #geografis {
+                padding: 4rem 2rem; /* Default untuk desktop */
+            }
+            
+            #geografis h2 {
+                font-size: 2.5rem; /* Ukuran judul default */
+                margin-bottom: 2rem;
+                color: #0056b3;
+            }
+            
+            #geografis p {
+                font-size: 1.5rem;
+                line-height: 1.6;
+                color: #333;
+                margin-top: 1rem;
+            }
+            
+            #geografis ul {
+                list-style-type: none;
+                padding-left: 0;
+                margin-left: 20px;
+            }
+            
+            #geografis li {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+                color: #333;
+            }
+            
+            /* Media query untuk tampilan tablet */
+            @media (max-width: 768px) {
+                #geografis {
+                    padding: 3rem 1.5rem;
+                }
+                #geografis h2 {
+                    font-size: 2rem;
+                }
+                #geografis p {
+                    font-size: 1.3rem;
+                }
+                #geografis li {
+                    font-size: 1.1rem;
+                }
+            }
+            
+            /* Media query untuk tampilan ponsel */
+            @media (max-width: 480px) {
+                #geografis {
+                    padding: 2rem 1rem; /* Padding lebih kecil untuk ponsel */
+                }
+                #geografis h2 {
+                    font-size: 1.8rem; /* Ukuran judul lebih kecil di ponsel */
+                }
+                #geografis p {
+                    font-size: 1.2rem;
+                }
+                #geografis li {
+                    font-size: 1rem;
+                }
+            }
+            
+            /* Bagian #map-container */
+            #map-container {
+                width: 100%;
+                height: 500px; /* Tinggi default untuk desktop */
+                max-width: 1000px;
+                margin: 1rem auto;
+                border: 5px solid #0056b3;
+                border-radius: 10px;
+                background-color: #e6f0ff;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+            }
+            
+            /* Media query untuk tampilan tablet */
+            @media (max-width: 768px) {
+                #map-container {
+                    height: 400px;
+                    margin: 1rem auto;
+                    border: 4px solid #0056b3;
+                }
+            }
+            
+            /* Media query untuk tampilan ponsel */
+            @media (max-width: 480px) {
+                #map-container {
+                    height: 300px;
+                    margin: 0.5rem auto;
+                    border: 3px solid #0056b3;
+                }
+            }
+            
+            /* Bagian #popup */
+            #popup {
+                background-color: rgba(255, 255, 255, 0.7);
+                border-radius: 5px;
+                padding: 10px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            }
+            
+            #popup-closer {
+                color: #333;
+                font-size: 1.2rem;
+                text-decoration: none;
+            }
+            
+            #popup-content {
+                font-size: 1rem;
+                color: #333;
+            }
+
+
+
+
+            /* Kontak Section */
+            #kontak {
+                background: #2980b9;
+                color: #ecf0f1;
+                padding: 40px 20px;
+                text-align: center; /* Memusatkan konten di tengah */
+                border-top: 5px solid #1abc9c; /* Menambahkan garis atas untuk aksen */
+            }
+            
+            #kontak h3 {
+                font-size: 2em;
+                margin-bottom: 20px;
+                font-family: 'Arial', sans-serif; /* Mengubah font untuk kesan modern */
+            }
+            
+            .contact-info {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                font-size: 1.1em;
+                line-height: 1.8; /* Meningkatkan jarak antar baris */
+                font-family: 'Helvetica', sans-serif; /* Font yang lebih bersih */
+            }
+            
+            .contact-info li {
+                margin-bottom: 15px;
+            }
+            
+            .contact-info a {
+                text-decoration: none;
+                color: #ecf0f1;
+                font-weight: 500;
+                transition: color 0.3s ease;
+            }
+            
+            .contact-info a:hover {
+                color: #1abc9c; /* Memberikan efek warna saat hover */
+            }
+            
+            .social-media {
+                display: flex;
+                justify-content: center;
+                gap: 30px;
+                margin-top: 30px;
+            }
+            
+            .social-media a {
+                color: #ecf0f1;
+                font-size: 2em;
+                transition: transform 0.3s ease; /* Animasi saat di-hover */
+            }
+            
+            .social-media a:hover {
+                color: #1abc9c;
+                transform: scale(1.1); /* Efek pembesaran ikon saat di-hover */
+            }
+            
+            @media (max-width: 480px) {
+                #kontak {
+                    padding: 30px 15px; /* Menyesuaikan padding agar lebih ramping */
+                }
+            
+                #kontak h3 {
+                    font-size: 1.5em; /* Menyesuaikan ukuran judul */
+                }
+            
+                .contact-info li {
+                    font-size: 0.9em;
+                }
+            
+                .social-media a {
+                    font-size: 1.8em; /* Menyesuaikan ukuran ikon media sosial */
+                }
+            }
+        </style>
     </head>
     <body>
-        <div id="map">
-            <div id="popup" class="ol-popup">
-                <a href="#" id="popup-closer" class="ol-popup-closer"></a>
-                <div id="popup-content"></div>
-            </div>
-        </div>
+            <!-- Navbar -->
+            <nav>
+                <div class="logo">
+                    <h2>Kelurahan Berkoh</h2>
+                </div>
+                <button class="menu-toggle" aria-label="Toggle Navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#visi-misi">Visi & Misi</a></li>
+                    <li><a href="#geografis">Peta</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+            </nav>
+        
+        
+            <!-- Beranda Section -->
+            <section id="beranda">
+                <div class="hero">
+                    <h1>Selamat Datang di Kelurahan Berkoh</h1>
+                    <p> Kelurahan Berkoh di Purwokerto Selatan, Banyumas, adalah kawasan padat penduduk dengan fasilitas umum seperti sekolah, pasar, dan pusat kesehatan. Warganya mayoritas bekerja di sektor perdagangan, jasa, dan pertanian. Lokasinya strategis di Purwokerto.</p>
+                    <a href="#map-container" class="cta-button">Lihat Peta</a>
+                </div>
+            </section>
+
+
+
+            <!-- Visi dan Misi Section -->
+            <section id="visi-misi">
+                <div class="container">
+                    <div class="visi-misi-text">
+                        <h2>Visi dan Misi Desa Seliling</h2>
+                        <div class="visi">
+                            <p><strong>Visi :</strong> Mewujudkan Kelurahan Berkoh sebagai wilayah yang aman, nyaman, berdaya saing, dan mandiri dengan masyarakat yang sejahtera dan berbudaya.</p>
+                        </div>
+                        <div class="misi">
+                            <p><strong>Misinya</strong> yakni untuk :</p>
+                            <ul>
+                                <li>Meningkatkan pelayanan publik yang cepat, transparan, dan akuntabel.</li>
+                                <li>Mendorong pemberdayaan masyarakat dalam bidang ekonomi, pendidikan, dan kesehatan.</li>
+                                <li>Mewujudkan lingkungan yang bersih, hijau, dan ramah lingkungan.</li>
+                                <li>Memperkuat nilai-nilai budaya dan kebersamaan di masyarakat.</li>
+                                <li>Meningkatkan keamanan dan ketertiban lingkungan melalui partisipasi aktif warga.</li>
+                            </ul>
+                        </div>
+                    </div>
+            
+                    <!-- Kontainer untuk Foto Kegiatan Desa -->
+                    <div class="foto-kegiatan">
+                        <h3>Monumen Di Purwokerto</h3>
+                        <div class="foto-grid">
+                            <div class="foto-item">
+                                <img src="images/kegiatan1.png" alt="Kegiatan Desa 1">
+                                <div class="foto-description">
+                                    <p>Pelatihan keterampilan untuk masyarakat dalam meningkatkan ekonomi desa.</p>
+                                </div>
+                            </div>
+                            <div class="foto-item">
+                                <img src="images/kegiatan2.png" alt="Kegiatan Desa 2">
+                                <div class="foto-description">
+                                    <p>Program sanitasi untuk memastikan kebersihan dan kesehatan warga desa.</p>
+                                </div>
+                            </div>
+                            <div class="foto-item">
+                                <img src="images/kegiatan3.jpg" alt="Kegiatan Desa 3">
+                                <div class="foto-description">
+                                    <p>Penyuluhan lingkungan hidup untuk menjaga kelestarian alam.</p>
+                                </div>
+                            </div>
+                            <div class="foto-item">
+                                <img src="images/kegiatan4.png" alt="Kegiatan Desa 4">
+                                <div class="foto-description">
+                                    <p>Pembangunan infrastruktur jalan desa untuk mempermudah akses warga.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <!-- Geografis Section -->
+            <section id="geografis">
+                <h2>Lokasi Desa Berkoh</h2>
+                <div id="map-container">
+                    <div id="map">
+                        <div id="popup" class="ol-popup">
+                            <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                            <div id="popup-content"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- Kontak Section -->
+            <footer id="kontak">
+                <h3>Kontak Kami</h3>
+                <ul class="contact-info">
+                    <li><a href="mailto:info@desseliling.id">Email: info@desaberkoh.id</a></li>
+                    <li><a href="tel:+628123456789">Telepon: +62 812 3456 000</a></li>
+                </ul>
+                <p>Alamat: Jl. Raya Panglima Besar Soedirman, Kelurahan Berkoh, Kecamatan Purwokerto Selatan, Kab Banyumas, Provinsi Jawa Tengah</p>
+                
+                <!-- Media Sosial -->
+                <div class="social-media">
+                    <a href="https://www.instagram.com/desseliling" target="_blank" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://twitter.com/desseliling" target="_blank" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </footer>
+
+
+                
+        <script>
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+        
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('open');
+            });
+        </script>
+
+        
         <script src="resources/qgis2web_expressions.js"></script>
-<script src="resources/proj4.js"></script>
+        <script src="resources/proj4.js"></script>
         <script>proj4.defs('EPSG:4326','+proj=longlat +datum=WGS84 +no_defs');</script>
         <script src="./resources/functions.js"></script>
         <script src="./resources/ol.js"></script>

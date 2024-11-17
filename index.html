@@ -142,195 +142,189 @@
                 }
             }
     
-/* Beranda Section */
-#beranda {
-    height: 100vh; /* Selalu memenuhi tinggi layar penuh */
-    background: url('images/bg.jpg') no-repeat center center/cover;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+            /* Beranda Section */
+            #beranda {
+                height: 100vh; /* Selalu memenuhi tinggi layar penuh */
+                background: url('images/bg.jpg') no-repeat center center/cover;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            #beranda::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.4); /* Overlay untuk memberikan efek gelap */
+                z-index: 1;
+            }
+            
+            .hero {
+                position: relative;
+                z-index: 2;
+                text-align: center;
+                color: #ffffff;
+            }
+            
+            .hero h1 {
+                font-size: 48px;
+                font-weight: 700;
+                margin-bottom: 10px;
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            }
+            
+            .hero p {
+                font-size: 20px;
+                font-weight: 300;
+                margin-bottom: 20px;
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            }
+            
+            .cta-button {
+                display: inline-block;
+                padding: 12px 24px;
+                font-size: 18px;
+                color: #ffffff;
+                background-color: #0862bc;
+                border: none;
+                border-radius: 30px;
+                text-decoration: none;
+                font-weight: 600;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                transition: all 0.3s ease;
+            }
+            
+            .cta-button:hover {
+                background-color: #1abc9c;
+                transform: scale(1.05);
+            }
+            
+            /* Media Query untuk Responsivitas */
+            @media (max-width: 768px) {
+                .hero h1 {
+                    font-size: 32px; /* Ukuran lebih kecil untuk layar kecil */
+                }
+            
+                .hero p {
+                    font-size: 16px; /* Sesuaikan ukuran teks */
+                }
+            
+                .cta-button {
+                    padding: 10px 20px;
+                    font-size: 16px;
+                }
+            }
+            
+            @media (max-width: 480px) {
+                .hero h1 {
+                    font-size: 28px; /* Ukuran teks lebih kecil */
+                }
+            
+                .hero p {
+                    font-size: 14px; /* Ukuran lebih kecil untuk layar sangat kecil */
+                }
+            
+                .cta-button {
+                    padding: 8px 16px;
+                    font-size: 14px;
+                }
+            }
+
+
+
+                 
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
-#beranda::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* Overlay untuk memberikan efek gelap */
-    z-index: 1;
-}
-
-.hero {
-    position: relative;
-    z-index: 2;
+h2, h3 {
     text-align: center;
-    color: #ffffff;
+    color: #333;
 }
 
-.hero h1 {
-    font-size: 48px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.hero p {
-    font-size: 20px;
-    font-weight: 300;
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 12px 24px;
-    font-size: 18px;
-    color: #ffffff;
-    background-color: #0862bc;
-    border: none;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: #1abc9c;
-    transform: scale(1.05);
-}
-
-/* Media Query untuk Responsivitas */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 32px; /* Ukuran lebih kecil untuk layar kecil */
-    }
-
-    .hero p {
-        font-size: 16px; /* Sesuaikan ukuran teks */
-    }
-
-    .cta-button {
-        padding: 10px 20px;
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: 28px; /* Ukuran teks lebih kecil */
-    }
-
-    .hero p {
-        font-size: 14px; /* Ukuran lebih kecil untuk layar sangat kecil */
-    }
-
-    .cta-button {
-        padding: 8px 16px;
-        font-size: 14px;
-    }
-}
-
-
-
-                 /* Gaya untuk Visi dan Misi */
+/* Visi dan Misi Section */
 #visi-misi {
-    background-color: #ffffff;
-    height: 100vh; /* Tinggi penuh satu layar */
-    display: flex; /* Menggunakan Flexbox */
-    justify-content: center; /* Memusatkan secara horizontal */
-    align-items: center; /* Memusatkan secara vertikal */
-    padding: 40px 20px;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    min-height: 100vh; /* Full screen height */
 }
 
 .visi-misi-text {
-    max-width: 800px; /* Batas lebar konten */
-    margin: 0 auto;
+    max-width: 800px;
+    margin-bottom: 30px;
 }
 
-.visi-misi-text h2 {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 20px;
+.visi p, .misi p, .misi ul {
+    line-height: 1.6;
+    color: #555;
 }
 
-.visi-misi-text .visi, 
-.visi-misi-text .misi {
-    margin-bottom: 20px;
+.misi ul {
+    padding-left: 20px;
 }
 
-.visi-misi-text .misi ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.visi-misi-text .misi ul li {
+.misi ul li {
     margin-bottom: 10px;
 }
 
-.visi-misi-text .misi strong {
-    color: #007BFF;
-}
-
-/* Gaya untuk Foto Kegiatan */
+/* Foto Kegiatan Section */
 .foto-kegiatan {
-    background-color: #f9f9f9;
-    height: 100vh; /* Tinggi penuh satu layar */
-    display: flex; /* Menggunakan Flexbox */
-    flex-direction: column; /* Atur arah konten ke kolom */
-    justify-content: center; /* Memusatkan secara vertikal */
-    align-items: center; /* Memusatkan secara horizontal */
-    padding: 20px;
-    text-align: center;
-}
-
-.foto-kegiatan h3 {
-    font-size: 1.8rem;
-    color: #333;
-    margin-bottom: 20px;
+    width: 100%;
+    margin-top: 30px;
 }
 
 .foto-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-    width: 100%;
-    max-width: 1000px; /* Batas lebar grid */
+}
+
+.foto-item {
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border-radius: 10px;
+    text-align: center;
 }
 
 .foto-item img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: block;
 }
 
 .foto-description {
-    text-align: center;
-    padding: 10px;
-    background-color: #fff;
-    border-radius: 0 0 8px 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    font-size: 14px;
+    color: #555;
 }
 
-/* Responsif untuk ukuran layar kecil */
+/* Responsiveness */
 @media (max-width: 768px) {
-    #visi-misi, 
-    .foto-kegiatan {
-        padding: 20px; /* Sesuaikan padding pada layar kecil */
+    .visi-misi-text {
+        padding: 0 10px;
     }
 
-    .visi-misi-text h2,
-    .foto-kegiatan h3 {
-        font-size: 1.5rem;
-    }
-
-    .foto-grid {
-        grid-template-columns: 1fr; /* Satu kolom untuk layar kecil */
+    .misi ul {
+        padding-left: 15px;
     }
 }
 

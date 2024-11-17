@@ -142,77 +142,110 @@
                 }
             }
     
-            /* Beranda Section */
-            #beranda {
-                background: #0b909c;
-                color: #fff;
-                padding: 80px 20px;
-                text-align: center;
-            }
-            
-            /* CSS untuk Bagian Beranda */
-            #beranda {
-                height: 100vh;
-                background: url('images/bg.jpg') no-repeat center center/cover;
-                position: relative;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            
-            #beranda::before {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.4); /* Overlay untuk memberikan efek gelap */
-                z-index: 1;
-            }
-            
-            .hero {
-                position: relative;
-                z-index: 2;
-                text-align: center;
-                color: #ffffff;
-            }
-            
-            .hero h1 {
-                font-size: 48px;
-                font-weight: 700;
-                margin-bottom: 10px;
-                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-            }
-            
-            .hero p {
-                font-size: 20px;
-                font-weight: 300;
-                margin-bottom: 20px;
-                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-            }
-            
-            .cta-button {
-                display: inline-block;
-                padding: 12px 24px;
-                font-size: 18px;
-                color: #ffffff;
-                background-color: #0862bc;
-                border: none;
-                border-radius: 30px;
-                text-decoration: none;
-                font-weight: 600;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-                transition: all 0.3s ease;
-            }
-            
-            .cta-button:hover {
-                background-color: #1abc9c;
-                transform: scale(1.05);
-            }
+/* Beranda Section */
+#beranda {
+    height: 100vh;
+    background: url('images/bg.jpg') no-repeat center center/cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#beranda::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Overlay untuk memberikan efek gelap */
+    z-index: 1;
+}
+
+.hero {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #ffffff;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.hero p {
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #0862bc;
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #1abc9c;
+    transform: scale(1.05);
+}
+
+/* Media Query untuk Responsivitas */
+@media (max-width: 768px) {
+    #beranda {
+        padding: 20px;
+    }
+
+    .hero h1 {
+        font-size: 32px; /* Ukuran lebih kecil untuk layar kecil */
+    }
+
+    .hero p {
+        font-size: 16px; /* Sesuaikan ukuran teks */
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    #beranda {
+        height: auto; /* Sesuaikan agar bagian ini fleksibel */
+        padding: 20px 10px;
+    }
+
+    .hero h1 {
+        font-size: 28px; /* Ukuran teks lebih kecil */
+    }
+
+    .hero p {
+        font-size: 14px; /* Ukuran lebih kecil untuk layar sangat kecil */
+    }
+
+    .cta-button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
 
 
-                                /* Gaya untuk Visi dan Misi */
+
+                 /* Gaya untuk Visi dan Misi */
                     #visi-misi {
                         background-color: #ffffff;
                         padding: 40px 20px;
